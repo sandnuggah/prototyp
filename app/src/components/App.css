@@ -1,0 +1,13 @@
+.App {
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.App h1 {
+  font-size: 125%;
+  margin: 0;
+}
+
+.App table {
+  width: 100%;
+}

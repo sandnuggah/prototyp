@@ -1,0 +1,22 @@
+version: "3.1"
+
+services:
+  api:
+    build: ./api
+    container_name: api
+    working_dir: /opt/app
+    volumes:
+      - ./api:/opt/app
+    ports:
+      - 3001:3000
+    command: npm start
+
+  app:
+    build: ./app
+    container_name: app
+    working_dir: /opt/app
+    volumes:
+      - ./app:/opt/app
+    ports:
+      - 3000:3000
+    command: npm start
