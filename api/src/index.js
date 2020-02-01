@@ -18,13 +18,13 @@ app.get('/', (_, res) => {
   return res.send(`API V${pkg.version}`)
 })
 
-app.get('/uploads', async (_, res, next) => {
+app.get('/uploads', async (req, res, next) => {
   try {
     const uploads = await Upload.findAndCountAll({
       where: {},
       order: [['updatedAt', 'DESC']],
       limit: 5,
-      offset: 0
+      offset: req.query.page || 0
     })
 
     return res.send(uploads)
