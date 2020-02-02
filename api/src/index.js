@@ -90,14 +90,15 @@ app.post('/uploads', async (req, res, next) => {
 
 app.patch('/uploads/:pk', async (req, res, next) => {
   try {
-    const updatedUpload = await Upload.findByPk(req.params.pk).update(
-      req.body,
+    const upload = await Upload.update(
       {
-        fields: ['filename']
+        filename: req.body.filename
+      },
+      {
+        where: { _id: req.params.pk }
       }
     )
-
-    return res.send(updatedUpload)
+    return res.send(upload)
   } catch (error) {
     next(error)
   }
