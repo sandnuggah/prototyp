@@ -10,8 +10,8 @@ function App() {
   useEffect(() => {
     fetch('/uploads')
       .then(convertResponseToJSON)
-      .then(({ rows: downloads }) => {
-        setUploads(downloads)
+      .then(({ rows: uploads }) => {
+        setUploads(uploads)
       })
       .catch(console.error)
   }, [])
